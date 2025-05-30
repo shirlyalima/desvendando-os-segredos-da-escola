@@ -1,0 +1,90 @@
+body {
+  background-image: url('/imgs/capa.jpeg');
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans", sans-serif;
+}
+
+.quadrado-transparente {
+  width: 1250px;
+  height: 580px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 10px;
+  padding: 25px;
+  position: fixed; /* Mantém fixo no centro da tela */
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centraliza com base no próprio tamanho */
+  display: flex; /* Para alinhar o conteúdo internamente */
+  flex-direction: column; /* Para que o conteúdo fique empilhado verticalmente */
+  justify-content: center;
+  align-items: center;
+  
+}
+
+button{
+  background-color: #be944f;
+  border-radius: 20px;
+  border: 3px solid black;
+  width: 12vw;
+  height: 5vh;
+  margin: 30px 10px 0 90px;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+  font-size: 1.1em;
+  
+}
+
+button:hover {
+    background-color: rgb(241, 205, 74);
+    transform: skewX(-12deg);
+}
+
+#content {
+  margin-top: 20px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  width: 100%; /* Ensure content takes full width of parent */
+  height: 100%; /* Ensure content takes full height of parent */
+  overflow-y: auto; /* Enable scrolling if content overflows */
+  z-index: 2;
+  display: grid; /* Use grid for column layout */
+  grid-template-columns: repeat(2, 1fr); /* Two columns, equal width */
+  gap: 20px; /* Space between columns */
+  padding: 10px; /* Add some padding inside the content area */
+  box-sizing: border-box; /* Include padding in the element's total width and height */
+}
+
+#content.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hidden {
+  display: none;
+}
+
+/* Style for column content */
+.column-item {
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.05); /* Slightly visible background for each column item */
+    border-radius: 8px;
+    height: fit-content; /* Adjust height based on content */
+}
+
+.column-item h3 {
+    margin-top: 0;
+    color: #be944f; /* Heading color */
+}
+
+.column-item ul {
+    list-style: none; /* Remove default list bullets */
+    padding: 0;
+}
+
+.column-item ul li {
+    margin-bottom: 5px;
+}

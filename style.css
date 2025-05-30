@@ -1,0 +1,82 @@
+body {
+    background: black;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    font-family: "Open Sans", sans-serif;
+}
+
+.intro {
+    display: block;
+    width: 800px;
+    padding: 0 50px 0 0;  
+    align-items: center;
+}
+
+h1 {
+    margin: 200px 40px 0 350px;
+    font-family: "Cinzel";
+    color: rgb(255, 255, 255);
+}
+
+button{
+    background-color: white;
+    border-radius: 20px;
+    border: none;   
+    width: 6vw;
+    height: 5vh;
+    cursor: pointer;
+    margin: 25px 0 0 400px;
+}
+
+button:hover {
+    background-color: rgb(241, 205, 74);
+    font-size: 90%; 
+}
+
+.container {
+    display: flex;
+    width: 680px;
+    height: 100vh;
+    overflow: hidden; /* evita que a imagem ultrapasse a borda */
+    position: relative; /* importante para elementos posicionados dentro */
+    background: black;
+    padding: 0;
+    margin: 0;
+}
+
+.background-text {
+    position: absolute;
+    color: white;
+    font-size: 1.3em;
+    padding: 1px;
+    margin-top: 120px;
+    width: 71%;
+    height: 95vh;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+    text-align:center;
+    cursor: pointer;
+    font-family: "Cinzel";
+    z-index: 1; /* fica atrás da imagem */
+  
+}
+
+.item1 {
+    display: inline-block;
+    position: relative;
+    background-image: url("./imgs/img\ 1.png");
+    width: 71%;
+    height: 100vh;
+    filter: grayscale(100%);
+    transition: transform 1.3s ease, filter 0.5s ease; /* animação suave */
+    cursor: pointer;
+    z-index: 2; /* Fica na frente do texto */
+}
+
+.item1:hover {
+    filter: grayscale(0%);
+}
+
+.item1.active {
+    transform: translateX(-500px);
+}
