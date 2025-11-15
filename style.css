@@ -99,42 +99,7 @@ h1 {
 }
 
 /* ==================================== */
-/* MEDIA QUERY: MOBILE (< 768px) */
-/* ==================================== */
-@media (max-width: 767px) {
-    body {
-        padding: 10px;
-    }
-
-    h1 {
-        margin-top: 80px;
-        font-size: 1.8em;
-    }
-
-    .intro button {
-        width: 70vw;
-        max-width: 200px;
-        font-size: 0.95em;
-    }
-
-    .container {
-        width: 100%;
-        margin: 10px 0;
-        padding: 0;
-    }
-
-    .item1 {
-        height: 250px;
-    }
-
-    .background-text {
-        font-size: 0.95em;
-        padding: 15px 10px;
-    }
-}
-
-/* ==================================== */
-/* MEDIA QUERY: LAYOUT DESKTOP (≥ 768px) */
+/* MEDIA QUERY: LAYOUT DESKTOP (> 768px) */
 /* ==================================== */
 @media (min-width: 768px) {
     body {
