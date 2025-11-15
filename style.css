@@ -1,76 +1,97 @@
+/* ==================================== */
+/* ESTILOS GERAIS (MOBILE FIRST) */
+/* ==================================== */
 body {
-    background: black;
+    background: black; 
     margin: 0;
     padding: 0;
-    display: flex;
+    min-height: 100vh;
     font-family: "Open Sans", sans-serif;
+    
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
 }
 
+/* INTRO (Bem-vindo + Botão Iniciar) */
 .intro {
-    display: block;
-    width: 800px;
-    padding: 0 50px 0 0;  
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    text-align: center;
+    width: 100%; 
+    padding: 0;
 }
 
 h1 {
-    margin: 200px 40px 0 350px;
+    /* MANTÉM margin-top: 200px APENAS no mobile */
+    margin-top: 200px;
     font-family: "Cinzel";
     color: rgb(255, 255, 255);
 }
 
-button{
+.intro button {
     background-color: white;
     border-radius: 20px;
-    border: none;   
-    width: 6vw;
+    border: none;    
+    width: 150px; 
     height: 5vh;
     cursor: pointer;
-    margin: 25px 0 0 400px;
+    margin: 25px auto 0 auto; 
 }
 
-button:hover {
+.intro button:hover {
     background-color: rgb(241, 205, 74);
     font-size: 90%; 
 }
 
+/* ==================================== */
+/* CONTAINER PRINCIPAL (Texto + Imagem) */
+/* ==================================== */
 .container {
     display: flex;
-    width: 680px;
-    height: 100vh;
-    overflow: hidden; /* evita que a imagem ultrapasse a borda */
-    position: relative; /* importante para elementos posicionados dentro */
+    flex-direction: column; 
+    width: 90%; 
+    max-width: 680px; 
+    height: auto; 
+    overflow: hidden; 
+    position: relative; 
     background: black;
-    padding: 0;
-    margin: 0;
+    padding: 10px;
+    margin: 20px 0;
 }
 
 .background-text {
-    position: absolute;
+    position: relative; 
     color: white;
-    font-size: 1.3em;
-    padding: 1px;
-    margin-top: 120px;
-    width: 71%;
-    height: 95vh;
+    font-size: 1em; 
+    padding: 20px 10px; 
+    margin-top: 0;
+    width: 100%;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
-    text-align:center;
+    
+    text-align: justify;
+    line-height: 1.6; 
+    
     cursor: pointer;
     font-family: "Cinzel";
-    z-index: 1; /* fica atrás da imagem */
-  
+    z-index: 1; 
+    max-height: none; 
+    overflow-y: hidden;
 }
 
 .item1 {
-    display: inline-block;
+    display: block;
     position: relative;
-    background-image: url("./imgs/img\ 1.png");
-    width: 71%;
-    height: 100vh;
+    background-image: url("./imgs/img 1.png");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 300px; 
     filter: grayscale(100%);
-    transition: transform 1.3s ease, filter 0.5s ease; /* animação suave */
+    transition: transform 1.3s ease, filter 0.5s ease;
     cursor: pointer;
-    z-index: 2; /* Fica na frente do texto */
+    z-index: 2; 
 }
 
 .item1:hover {
@@ -78,5 +99,89 @@ button:hover {
 }
 
 .item1.active {
-    transform: translateX(-500px);
+    /* Sem efeito de slide em mobile */
+}
+
+/* ==================================== */
+/* MEDIA QUERY: LAYOUT DESKTOP (> 768px) */
+/* ==================================== */
+@media (min-width: 768px) {
+    body {
+        flex-direction: row; 
+        justify-content: center;
+        align-items: stretch;
+        
+        /* CRUCIAL: Fixa a altura em 100% da tela e esconde o overflow */
+        height: 100vh; 
+        overflow: hidden; 
+        margin: 0;
+        padding: 0;
+    }
+
+    .intro {
+        flex-basis: 40%; 
+        
+        /* Usa o Flexbox para centralizar verticalmente */
+        display: flex;
+        flex-direction: column;
+        justify-content: center; 
+        align-items: center;
+        padding: 0;
+    }
+
+    h1 {
+        /* CORREÇÃO: Remove a margem superior que causava o overflow */
+        margin-top: 0; 
+        margin-bottom: 25px; 
+    }
+    
+    .container {
+        flex-direction: row;
+        flex-basis: 60%; 
+        width: 680px; 
+        height: 100vh; 
+        margin: 0;
+        overflow: hidden; 
+        position: relative; 
+    }
+
+    .background-text {
+        position: absolute; 
+        top: 0; 
+        left: 0; 
+        width: 71%; 
+        
+        /* Altura total e rolagem interna */
+        height: 100%; 
+        overflow-y: auto; 
+        
+        display: flex;
+        flex-direction: column;
+        align-items: center; 
+        justify-content: center; 
+        text-align: center;
+        line-height: 1.5; 
+        font-size: 1.3em;
+        margin-top: 0; 
+        padding: 50px 20px; 
+        box-sizing: border-box; 
+        
+        z-index: 1; 
+        background-color: rgba(0, 0, 0, 0.8); 
+    }
+
+    .background-text p {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .item1 {
+        width: 71%;
+        height: 100vh;
+        z-index: 2; 
+    }
+    
+    .item1.active {
+        transform: translateX(-500px); 
+    }
 }

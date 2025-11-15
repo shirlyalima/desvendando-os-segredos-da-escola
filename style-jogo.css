@@ -33,7 +33,10 @@ button{
   cursor: pointer;
   position: relative;
   z-index: 2;
-  font-size: 1.1em;
+  font-size: 1.0em;
+  font-family: "Cinzel";
+  font-weight: bold;
+  
   
 }
 
@@ -87,4 +90,62 @@ button:hover {
 
 .column-item ul li {
     margin-bottom: 5px;
+}
+
+/* ==================================== */
+/* MEDIA QUERY: LAYOUT DESKTOP (> 768px) */
+/* ==================================== */
+@media (min-width: 992px) {
+    /* Estilos do body ajustados para o layout fixo/centralizado */
+    body {
+        /* Se você usar position: fixed no quadrado, você pode querer centralizar o fundo aqui */
+        min-height: 100vh;
+        /* IMPORTANTE: Desativa rolagem se você quiser que o quadrado fique fixo */
+        /* overflow: hidden; */ 
+    }
+    
+    .quadrado-transparente {
+        width: 1250px;
+        height: 580px;
+        background-color: rgba(255, 255, 255, 0.9);
+        border: none;
+        border-radius: 10px;
+        padding: 25px;
+        position: fixed; /* Mantém fixo no centro da tela */
+        top: 55%;
+        left: 50%;
+        transform: translate(-50%, -50%); /* Centraliza com base no próprio tamanho */
+        display: flex; /* Para alinhar o conteúdo internamente */
+        flex-direction: column; /* Para que o conteúdo fique empilhado verticalmente */
+        justify-content: center;
+        align-items: center;
+        margin-top: 0; /* Remove margem do mobile */
+        margin-bottom: 0;
+    }
+
+    button{
+        background-color: #be944f;
+        border-radius: 20px;
+        border: 3px solid black;
+        width: 12vw;
+        height: 5vh;
+        margin: 30px 10px 0 90px;
+        cursor: pointer;
+        position: relative;
+        z-index: 2;
+        font-size: 1.0em;
+        font-family: "Cinzel";
+        font-weight: bold;
+    }
+
+    /* O hover já estava fora, mas o mantemos aqui para clareza */
+    button:hover {
+        background-color: rgb(241, 205, 74);
+        transform: skewX(-12deg);
+    }
+
+    #content {
+        /* Apenas a parte do grid é essencial mudar do mobile para o desktop */
+        grid-template-columns: repeat(2, 1fr); /* Volta para duas colunas no desktop */
+    }
 }
