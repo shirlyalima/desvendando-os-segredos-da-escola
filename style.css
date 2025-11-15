@@ -83,7 +83,7 @@ h1 {
 .item1 {
     display: block;
     position: relative;
-    background-image: url("./imgs/img 1.png");
+    background-image: url("./imgs/img-1.png");
     background-size: cover;
     background-position: center;
     width: 100%;
@@ -96,10 +96,6 @@ h1 {
 
 .item1:hover {
     filter: grayscale(0%);
-}
-
-.item1.active {
-    /* Sem efeito de slide em mobile */
 }
 
 /* ==================================== */

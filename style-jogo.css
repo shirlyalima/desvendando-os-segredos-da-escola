@@ -1,5 +1,5 @@
 body {
-  background-image: url('/imgs/capa.jpeg');
+  background-image: url("./imgs/capa.jpeg");
   margin: 0;
   padding: 0;
   font-family: "Open Sans", sans-serif;
