@@ -1,60 +1,43 @@
 body {
-  background-image: url("./imgs/capa.jpeg");
-  background-size: cover;
-  background-position: center;
+  background-image: url('/imgs/capa.jpeg');
   margin: 0;
-  padding: 10px;
+  padding: 0;
   font-family: "Open Sans", sans-serif;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-}
-
-.menu-bar {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  justify-content: center;
-  width: 100%;
-  margin-bottom: 15px;
-  z-index: 10;
 }
 
 .quadrado-transparente {
-  width: 95%;
-  max-width: 1250px;
-  height: auto;
-  max-height: 85vh;
+  width: 1250px;
+  height: 580px;
   background-color: rgba(255, 255, 255, 0.9);
   border: none;
   border-radius: 10px;
-  padding: 15px;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  padding: 25px;
+  position: fixed; /* Mantém fixo no centro da tela */
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centraliza com base no próprio tamanho */
+  display: flex; /* Para alinhar o conteúdo internamente */
+  flex-direction: column; /* Para que o conteúdo fique empilhado verticalmente */
+  justify-content: center;
   align-items: center;
-  overflow-y: auto;
+  
 }
 
-button {
+button{
   background-color: #be944f;
   border-radius: 20px;
   border: 3px solid black;
-  width: auto;
-  min-width: 100px;
-  height: auto;
-  padding: 0.5rem 1rem;
-  margin: 5px;
+  width: 12vw;
+  height: 5vh;
+  margin: 30px 10px 0 90px;
   cursor: pointer;
   position: relative;
   z-index: 2;
-  font-size: 0.95em;
+  font-size: 1.0em;
   font-family: "Cinzel";
   font-weight: bold;
-  transition: all 0.3s ease;
+  
+  
 }
 
 button:hover {
@@ -63,20 +46,19 @@ button:hover {
 }
 
 #content {
-  margin-top: 15px;
+  margin-top: 20px;
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.5s ease, transform 0.5s ease;
-  width: 100%;
-  height: auto;
-  max-height: calc(85vh - 150px);
-  overflow-y: auto;
+  width: 100%; /* Ensure content takes full width of parent */
+  height: 100%; /* Ensure content takes full height of parent */
+  overflow-y: auto; /* Enable scrolling if content overflows */
   z-index: 2;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 15px;
-  padding: 15px;
-  box-sizing: border-box;
+  display: grid; /* Use grid for column layout */
+  grid-template-columns: repeat(2, 1fr); /* Two columns, equal width */
+  gap: 20px; /* Space between columns */
+  padding: 10px; /* Add some padding inside the content area */
+  box-sizing: border-box; /* Include padding in the element's total width and height */
 }
 
 #content.visible {
@@ -91,92 +73,79 @@ button:hover {
 /* Style for column content */
 .column-item {
     padding: 10px;
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: rgba(255, 255, 255, 0.05); /* Slightly visible background for each column item */
     border-radius: 8px;
-    height: fit-content;
+    height: fit-content; /* Adjust height based on content */
 }
 
 .column-item h3 {
     margin-top: 0;
-    color: #be944f;
-    font-size: 1em;
-}
-
-.column-item p {
-    margin: 0.5em 0;
-    font-size: 0.95em;
-    line-height: 1.5;
+    color: #be944f; /* Heading color */
 }
 
 .column-item ul {
-    list-style: none;
+    list-style: none; /* Remove default list bullets */
     padding: 0;
-    margin: 0.5em 0;
 }
 
 .column-item ul li {
     margin-bottom: 5px;
-    font-size: 0.95em;
 }
 
 /* ==================================== */
-/* MEDIA QUERY: LAYOUT DESKTOP (≥ 992px) */
+/* MEDIA QUERY: LAYOUT DESKTOP (> 768px) */
 /* ==================================== */
 @media (min-width: 992px) {
+    /* Estilos do body ajustados para o layout fixo/centralizado */
     body {
-        padding: 0;
-        justify-content: center;
+        /* Se você usar position: fixed no quadrado, você pode querer centralizar o fundo aqui */
         min-height: 100vh;
-    }
-    
-    .menu-bar {
-        position: fixed;
-        top: 10px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: auto;
-        background-color: rgba(0, 0, 0, 0.7);
-        padding: 10px 20px;
-        border-radius: 20px;
-        margin-bottom: 0;
-        z-index: 20;
+        /* IMPORTANTE: Desativa rolagem se você quiser que o quadrado fique fixo */
+        /* overflow: hidden; */ 
     }
     
     .quadrado-transparente {
         width: 1250px;
         height: 580px;
-        position: fixed;
+        background-color: rgba(255, 255, 255, 0.9);
+        border: none;
+        border-radius: 10px;
+        padding: 25px;
+        position: fixed; /* Mantém fixo no centro da tela */
         top: 55%;
         left: 50%;
-        transform: translate(-50%, -50%);
-        padding: 25px;
-        margin-top: 50px;
-        overflow-y: auto;
-        max-height: none;
+        transform: translate(-50%, -50%); /* Centraliza com base no próprio tamanho */
+        display: flex; /* Para alinhar o conteúdo internamente */
+        flex-direction: column; /* Para que o conteúdo fique empilhado verticalmente */
+        justify-content: center;
+        align-items: center;
+        margin-top: 0; /* Remove margem do mobile */
+        margin-bottom: 0;
     }
 
-    button {
+    button{
+        background-color: #be944f;
+        border-radius: 20px;
+        border: 3px solid black;
         width: 12vw;
         height: 5vh;
-        padding: 0;
         margin: 30px 10px 0 90px;
-        font-size: 1em;
+        cursor: pointer;
+        position: relative;
+        z-index: 2;
+        font-size: 1.0em;
+        font-family: "Cinzel";
+        font-weight: bold;
+    }
+
+    /* O hover já estava fora, mas o mantemos aqui para clareza */
+    button:hover {
+        background-color: rgb(241, 205, 74);
+        transform: skewX(-12deg);
     }
 
     #content {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-        padding: 10px;
-        max-height: none;
-        margin-top: 20px;
-    }
-
-    .column-item h3 {
-        font-size: 1.1em;
-    }
-
-    .column-item p,
-    .column-item ul li {
-        font-size: 1em;
+        /* Apenas a parte do grid é essencial mudar do mobile para o desktop */
+        grid-template-columns: repeat(2, 1fr); /* Volta para duas colunas no desktop */
     }
 }
